@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/queue.xsd">
+    <broker topic="neklo.random.product.create" exchange="neklo-random-product-create" type="db">
+        <queue name="neklo.random.product.create"
+               consumer="product_action_attribute.update"
+               consumerInstance="Magento\Framework\MessageQueue\Consumer"
+               handler="Neklo\RandomProduct\Model\Queue\Consumer::process" />
+    </broker>
+</config>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magento_Backend::content_slider"
+             title="NEKLO Random Product"
+             translate="title"
+             module="Magento_Backend"
+             parent="Magento_Backend::content"
+             resource="Magento_Backend::content_slider"
+             sortOrder="10" />
+        <add id="Neklo_RandomProduct::product"
+             title="Random Products"
+             module="Neklo_RandomProduct"
+             parent="Magento_Backend::content_slider"
+             resource="Neklo_RandomProduct::slider"
+             action="neklo_random_product/product/index"
+             sortOrder="100" />
+    </menu>
+</config>

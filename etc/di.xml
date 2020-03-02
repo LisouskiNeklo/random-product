@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Neklo\RandomProduct\Api\RandomProductManagementInterface"
+                type="Neklo\RandomProduct\Model\RandomProductManagement" />
+    <preference for="Neklo\RandomProduct\Api\Data\RandomProductInterface"
+                type="Neklo\RandomProduct\Model\RandomProduct" />
+    <preference for="Neklo\RandomProduct\Api\RandomProductRepositoryInterface"
+                type="Neklo\RandomProduct\Model\RandomProductRepository" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="neklo_random_product_product_data_source"
+                      xsi:type="string">Neklo\RandomProduct\Model\ResourceModel\RandomProduct\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Neklo\RandomProduct\Model\ResourceModel\RandomProduct\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable"
+                      xsi:type="const">Neklo\RandomProduct\Api\Data\RandomProductInterface::TABLE_NAME
+            </argument>
+        </arguments>
+    </virtualType>
+</config>
